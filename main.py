@@ -1,4 +1,3 @@
-import datetime
 from datetime import time
 
 
@@ -8,7 +7,7 @@ def test_dark_theme_by_time() -> object:
     """
     current_time = time(hour=23)
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
-    if datetime.time(6) <= current_time <= datetime.time(22):
+    if time(6) <= current_time <= time(22):
         is_dark_theme = False
         print('Включена светлая тема.')
     else:
@@ -16,8 +15,6 @@ def test_dark_theme_by_time() -> object:
         print('Включена темная тема.')
 
     assert is_dark_theme is True
-
-test_dark_theme_by_time()
 
 
 def test_dark_theme_by_time_and_user_choice():
@@ -41,18 +38,17 @@ def test_dark_theme_by_time_and_user_choice():
         is_dark_theme = False
         print('Принудительно включена светлая тема.')
     elif dark_theme_enabled_by_user is None:
-        if datetime.time(6) <= current_time <= datetime.time(22):
-           is_dark_theme = False
-           print('Включена светлая тема по времени.')
+        if time(6) <= current_time <= time(22):
+            is_dark_theme = False
+            print('Включена светлая тема по времени.')
         else:
-           is_dark_theme = True
-           print('Включена темная тема по времени.')
+            is_dark_theme = True
+            print('Включена темная тема по времени.')
     else:
         print('Невозможоно определить время.')
 
     assert is_dark_theme is True
 
-test_dark_theme_by_time_and_user_choice()
 
 def test_find_suitable_user():
     """
@@ -86,7 +82,6 @@ def test_find_suitable_user():
         {"name": "Maria", "age": 18},
     ]
 
-test_find_suitable_user()
 
 # Сделайте функцию, которая будет печатать
 # читаемое имя переданной ей функции и значений аргументов.
@@ -100,7 +95,7 @@ test_find_suitable_user()
 
 def beautify_readable_function(name, *args):
     func = (name.__name__.title()).replace("_", " ")
-    arg = "[" + "" .join(list(args)) + "]"
+    arg = "[" + ",".join(list(args)) + "]"
     return f"{func}{arg}"
 
 
