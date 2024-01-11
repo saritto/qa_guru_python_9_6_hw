@@ -1,7 +1,7 @@
 from datetime import time
 
 
-def test_dark_theme_by_time() -> object:
+def test_dark_theme_by_time():
     """
     Протестируйте правильность переключения темной темы на сайте в зависимости от времени
     """
@@ -94,9 +94,7 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 def beautify_readable_function(name, *args):
-    func = (name.__name__.title()).replace("_", " ")
-    arg = "[" + ",".join(list(args)) + "]"
-    return f"{func}{arg}"
+    return f"{name.__name__.replace('_', ' ').title()} [{', '.join([*args])}]"
 
 
 def test_readable_function():
